@@ -1,0 +1,1 @@
+Esse projeto refere-se ao curso do SENAC. Disciplina Projeto Integrador V - Parte 2 - 2025
