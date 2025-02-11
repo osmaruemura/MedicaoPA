@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, Image } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
-
-//import Slider from '@react-native-community/slider'
 
 export default function Login({navigation}){
 
@@ -12,10 +10,11 @@ export default function Login({navigation}){
   const [password, setPassword] = useState(null)
 
   const entrar = () => {
-    navigation.reset({
-        index: 0,
-        routes: [{name: "Principal"}]
-    })
+    navigation.navigate("Principal")
+    }
+
+  const cadastrar = () => {
+    navigation.navigate("Cadastro")
   }
 
   return(
@@ -27,7 +26,6 @@ export default function Login({navigation}){
           </View>
           <Image
             source={require("../src/assets/logotipo_Diario Cardiaco.png")}
-            style={styles.logo}
           />
           <Text style={styles.title}>Acesse sua conta:</Text>
           <Input
@@ -46,12 +44,25 @@ export default function Login({navigation}){
             icon={
               <Icon
                 name="check"
-                size={15}
+                size={18}
                 color="white"
               />
             }
-            title="Entrar"
+            title=" Entrar"
+            buttonStyle={specificStyle.button}
             onPress={() => entrar()}
+          />
+          <Button
+            icon={
+              <Icon
+                name="user"
+                size={18}
+                color="white"
+              />
+            }
+            title=" Cadastre-se"
+            buttonStyle={specificStyle.button}
+            onPress={() => cadastrar()}
           />
           <View  style={styles.containerEnd}>
             <Text style={styles.textPage}>Centro Universitário SENAC</Text>
@@ -63,3 +74,10 @@ export default function Login({navigation}){
     </View>
   )
 }
+
+const specificStyle = StyleSheet.create({
+  button:{
+    width: "100%",
+    marginTop:10,
+  },
+})
