@@ -10,9 +10,11 @@ export default function Cadastrar({navigation}){
   const [email, setEmail] = useState(null)
   const [nome, setNome] = useState(null)
   const [telefone, setTelefone] = useState(null)
+  const [senha, setSenha] = useState(null)
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorNome, setErrorNome] = useState(null)
   const [errorTelefone, setErrorTelefone] = useState(null)
+  const [errorSenha, setErrorSenha] = useState(null)
 
   let telefoneField = null
 
@@ -31,6 +33,10 @@ export default function Cadastrar({navigation}){
         setErrorTelefone("Preencha seu telefone válido")
         error = true
     }
+    if (senha == null){
+      setErrorSenha("Preencha com sua senha")
+      error = true
+  }
     return !error
   }
 
@@ -46,15 +52,6 @@ export default function Cadastrar({navigation}){
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.title}>Cadastre-se:</Text>
-          <Input
-            placeholder="E-mail"
-            onChangeText={value => {
-                setEmail(value)
-                setErrorEmail(null)
-            }}
-            keyboardType="email-address"
-            errorMessage={errorEmail}
-          />
           <Input
             placeholder="Nome"
             onChangeText={value => {
@@ -73,7 +70,10 @@ export default function Cadastrar({navigation}){
               dddMask: '(99) ',
             }}
             value={telefone}
-            onChangeText={value => setTelefone(value)}
+            onChangeText={value => {
+              setTelefone(value)
+              setErrorTelefone(null)
+            }}
             keyboardType="phone-pad"
             returnKeyType="done"
             style={styles.maskedInput}
@@ -81,10 +81,27 @@ export default function Cadastrar({navigation}){
           />
           </View>
           <Text style={styles.errorMessage}>{errorTelefone}</Text>
+          <Input
+            placeholder="E-mail"
+            onChangeText={value => {
+                setEmail(value)
+                setErrorEmail(null)
+            }}
+            keyboardType="email-address"
+            errorMessage={errorEmail}
+          />
+          <Input
+            placeholder="Senha"
+            onChangeText={value => {
+                setSenha(value)
+                setErrorSenha(null)
+            }}
+            errorMessage={errorSenha}
+          />
           <Button
             icon={
               <Icon
-                name="check"
+                name="save"
                 size={20}
                 color="white"
               />

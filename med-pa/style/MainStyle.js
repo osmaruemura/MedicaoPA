@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
       justifyContent: "top",
       alignItens: "center",
     },
-     textPage:{
+    textPage:{
       fontSize:14,
       fontWeight: 'bold',
       textAlign: "center",
@@ -23,12 +23,42 @@ const styles = StyleSheet.create({
       fontSize:16,
       fontWeight: 'bold',
     },
+    titleNormal:{
+      marginTop: 10,
+      fontSize:16,
+      fontWeight: 'bold',
+      color: "#6495ed",
+    },
+    titleElevada:{
+      marginTop: 10,
+      fontSize:16,
+      fontWeight: 'bold',
+      color: "#ffd700",
+    },
+    titleEstagio1:{
+      marginTop: 10,
+      fontSize:16,
+      fontWeight: 'bold',
+      color: "#ffa500",
+    },
+    titleEstagio2:{
+      marginTop: 10,
+      fontSize:16,
+      fontWeight: 'bold',
+      color: "#ff4500",
+    },
+    titleCrise:{
+      marginTop: 10,
+      fontSize:16,
+      fontWeight: 'bold',
+      color: "#b22222",
+    },
     containerEnd:{
       marginTop: 20,
     },
     maskedInput:{
       flexGrow:1,
-      height:50,
+      height:41,
       fontSize:19,
       borderBottomColor: "#999",
       borderBottomWidth:1,
@@ -37,8 +67,8 @@ const styles = StyleSheet.create({
     },
     containerMask:{
       flexDirection: "row",
-      marginBottom:5,
-      marginLeft:10,
+      marginBottom:8,
+      marginLeft:9,
       marginRight:10,
     },
     errorMessage:{

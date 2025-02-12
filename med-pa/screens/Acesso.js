@@ -4,13 +4,13 @@ import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
-export default function Login({navigation}){
+export default function Acesso({navigation}){
 
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
 
   const entrar = () => {
-    navigation.navigate("Principal")
+    navigation.navigate("Boas Vindas")
     }
 
   const cadastrar = () => {
