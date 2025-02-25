@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 
 export default function EntradaDados({navigation}) {
 
-    const iniciar = () => {
-      navigation.navigate("Entrada de Dados")
+    const salvar = () => {
+      navigation.navigate("Relatório de Dados")
     }
     
     return(
@@ -24,7 +23,7 @@ export default function EntradaDados({navigation}) {
             />
             <Input
                 placeholder="Inserir a hora"
-                leftIcon={{ type: 'font-awesome', name: 'clock' }}
+                leftIcon={{ type: 'font-awesome', name: 'calendar' }}
                 onChangeText={value => setHorario(value)}
                 keyboardType="phone-pad"
                 returnKeyType="done"
@@ -54,18 +53,6 @@ export default function EntradaDados({navigation}) {
                 title=" Salvar Dados"
                 buttonStyle={specificStyle.button}
                 onPress={() => salvar()}
-              />
-              <Button
-                icon={
-                  <Icon
-                    name="book"
-                    size={18}
-                    color="white"
-                  />
-                }
-                title=" Relatório de Dados Armazenados"
-                buttonStyle={specificStyle.button}
-                onPress={() => cancelar()}
               />
           </View>
         </ScrollView>

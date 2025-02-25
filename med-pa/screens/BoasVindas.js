@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,6 +7,10 @@ export default function BoasVindas({navigation}) {
 
 const iniciar = () => {
   navigation.navigate("Entrada de Dados")
+}
+
+const relatorio = () => {
+  navigation.navigate("Relatório de Dados")
 }
 
 return(
@@ -42,6 +45,18 @@ return(
             buttonStyle={specificStyle.button}
             onPress={() => iniciar()}
           />
+          <Button
+                icon={
+                  <Icon
+                    name="book"
+                    size={18}
+                    color="white"
+                  />
+                }
+                title=" Relatório de Dados Armazenados"
+                buttonStyle={specificStyle.button}
+                onPress={() => relatorio()}
+              />
       </View>
     </ScrollView>
   </View>

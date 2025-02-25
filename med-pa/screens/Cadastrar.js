@@ -4,6 +4,7 @@ import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
 import { TextInputMask } from 'react-native-masked-text';
+import usuarioService from '../services/UsuarioService';
 
 export default function Cadastrar({navigation}){
 
@@ -15,11 +16,15 @@ export default function Cadastrar({navigation}){
   const [errorNome, setErrorNome] = useState(null)
   const [errorTelefone, setErrorTelefone] = useState(null)
   const [errorSenha, setErrorSenha] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
   let telefoneField = null
 
   const validar = () =>{
     let error = false
+    setErrorEmail(null)
+    setErrorSenha(null)
+
     const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!re.test(String(email).toLowerCase())){
         setErrorEmail("Preencha seu e-mail corretamente")
@@ -41,9 +46,26 @@ export default function Cadastrar({navigation}){
   }
 
   const salvar = () => {
-    setErrorEmail(null)
     if (validar()){
-        console.log("Salvou")
+        setLoading(true)
+
+        let data = {
+          nome: nome,
+          telefone: telefone,
+          email: email,
+          senha: senha
+        }
+
+        usuarioService.cadastrar(data)
+        .then((response) => {
+          setLoading(false)
+          console.log(response.data)
+        })
+        .catch((error) => {
+          setLoading(false)
+          console.log(error)
+          console.log("Deu erro")
+        })
     }
   }
 
@@ -92,12 +114,16 @@ export default function Cadastrar({navigation}){
           />
           <Input
             placeholder="Senha"
-            onChangeText={value => {
-                setSenha(value)
-                setErrorSenha(null)
-            }}
+            onChangeText={value => setSenha(value)}
             errorMessage={errorSenha}
+            secureTextEntry={true}
           />
+
+        { isLoading &&
+          <Text>Carregando...</Text>
+        }
+
+        { !isLoading &&
           <Button
             icon={
               <Icon
@@ -110,6 +136,7 @@ export default function Cadastrar({navigation}){
             buttonStyle={specificStyle.button}
             onPress={() => salvar()}
           />
+          }
         </View>
       </ScrollView>
     </View>
