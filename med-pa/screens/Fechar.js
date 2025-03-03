@@ -21,6 +21,7 @@ return(
           />
           <Text style={styles.title}>Aplicativo elaborado por:</Text>
           <View  style={styles.containerEnd}>
+          <Text style={styles.textPage}></Text>
             <Text style={styles.textPage}>CAMILA CRISTINA KLENGEL BIASOTTO MENDES</Text>
             <Text style={styles.textPage}>GABRIELA PEDROLLO DE SOUZA</Text>
             <Text style={styles.textPage}>MICAEL VERÍSSIMO G. GAROFALO ARAUJO</Text>
@@ -41,8 +42,10 @@ return(
             onPress={() => encerrar()}
           />
           <View  style={styles.containerEnd}>
+            <Text style={styles.textPage}></Text>
             <Text style={styles.textPage}>Centro Universitário SENAC</Text>
-            <Text style={styles.textPage}>Projeto Integrador V - Grupo 05</Text>
+            <Text style={styles.textPage}>Projeto Integrador V</Text>
+            <Text style={styles.textPage}>Grupo 05</Text>
             <Text style={styles.textPage}>2025</Text>
           </View>
         </View>

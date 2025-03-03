@@ -46,7 +46,7 @@ export default function Acesso({navigation}){
           <Text style={styles.title}>Acesse sua conta:</Text>
           <Input
             placeholder="Digite seu e-mail"
-            leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+            leftIcon={{ type: 'font-awesome', name: 'envelope'}}
             onChangeText={value => setEmail(value)}
             keyboardType="email-address"
           />
@@ -89,8 +89,7 @@ export default function Acesso({navigation}){
           />
           <View  style={styles.containerEnd}>
             <Text style={styles.textPage}>Centro Universitário SENAC</Text>
-            <Text style={styles.textPage}>Projeto Integrador V - Grupo 05</Text>
-            <Text style={styles.textPage}>2025</Text>
+            <Text style={styles.textPage}>Projeto Integrador V - Grupo 05 - 2025</Text>
           </View>
         </View>
       </ScrollView>

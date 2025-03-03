@@ -21,12 +21,12 @@ export default function RelatorioDados({navigation}) {
               <Button
                 icon={
                   <Icon
-                    name="check"
+                    name=""
                     size={18}
                     color="white"
                   />
                 }
-                  title=" Iniciar"
+                  title=" Boas Vindas"
                   buttonStyle={specificStyle.button}
                   onPress={() => iniciar()}
               />
