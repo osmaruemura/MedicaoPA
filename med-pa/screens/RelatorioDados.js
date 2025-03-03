@@ -5,6 +5,10 @@ import styles from '../style/MainStyle';
 
 export default function RelatorioDados({navigation}) {
 
+  const iniciar = () => {
+    navigation.navigate("Boas Vindas")
+  }
+
     const sair = () => {
       navigation.navigate("Encerrar")
     }
@@ -17,7 +21,19 @@ export default function RelatorioDados({navigation}) {
               <Button
                 icon={
                   <Icon
-                    name="heart"
+                    name="check"
+                    size={18}
+                    color="white"
+                  />
+                }
+                  title=" Iniciar"
+                  buttonStyle={specificStyle.button}
+                  onPress={() => iniciar()}
+              />
+              <Button
+                icon={
+                  <Icon
+                    name=""
                     size={18}
                     color="white"
                   />

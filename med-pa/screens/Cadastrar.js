@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, Alert } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
@@ -59,12 +59,12 @@ export default function Cadastrar({navigation}){
         usuarioService.cadastrar(data)
         .then((response) => {
           setLoading(false)
-          console.log(response.data)
+          const titulo = (response.data.status) ? "Sucesso" : "Erro"
+          Alert.alert(titulo, response.data.mensagem)
         })
         .catch((error) => {
           setLoading(false)
-          console.log(error)
-          console.log("Deu erro")
+          Alert.alert("Erro", "Houve um erro inesperado")
         })
     }
   }
@@ -136,7 +136,7 @@ export default function Cadastrar({navigation}){
             buttonStyle={specificStyle.button}
             onPress={() => salvar()}
           />
-          }
+        }
         </View>
       </ScrollView>
     </View>

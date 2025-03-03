@@ -31,7 +31,7 @@ return(
           <Button
             icon={
               <Icon
-                name="check"
+                name=""
                 size={18}
                 color="white"
               />

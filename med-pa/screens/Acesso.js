@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, Alert } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
+import usuarioService from '../services/UsuarioService';
 
 export default function Acesso({navigation}){
 
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
   const entrar = () => {
-    navigation.navigate("Boas Vindas")
+
+    let data = {
+      username: email,
+      password: password
     }
+
+    usuarioService.login(data)
+    .then((response) => {
+      setLoading(false)
+      navigation.navigate("Boas Vindas")
+    })
+    .catch((error) => {
+      setLoading(false)
+      Alert.alert("Usuário não existe")
+    })
+  }
 
   const cadastrar = () => {
     navigation.navigate("Cadastro")
@@ -40,18 +56,25 @@ export default function Acesso({navigation}){
             onChangeText={value => setPassword(value)}
             secureTextEntry={true}
           />
-          <Button
-            icon={
-              <Icon
-                name="check"
-                size={18}
-                color="white"
-              />
-            }
-            title=" Entrar"
-            buttonStyle={specificStyle.button}
-            onPress={() => entrar()}
-          />
+
+          { isLoading &&
+            <Text>Carregando...</Text>
+          }
+
+          { !isLoading &&
+            <Button
+              icon={
+                <Icon
+                  name="check"
+                  size={18}
+                  color="white"
+                />
+              }
+              title=" Entrar"
+              buttonStyle={specificStyle.button}
+              onPress={() => entrar()}
+            />
+          }
           <Button
             icon={
               <Icon

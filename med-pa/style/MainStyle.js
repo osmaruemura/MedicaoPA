@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
       marginTop:5,
       marginBottom:5,
       resizeMode: "contain",
-      marginLeft:50,
+      marginLeft: 50,
     },
     title:{
       fontSize:16,
