@@ -96,7 +96,7 @@ export default function Cadastrar({navigation}){
               setTelefone(value)
               setErrorTelefone(null)
             }}
-            keyboardType="phone-pad"
+            keyboardType="number-pad"
             returnKeyType="done"
             style={styles.maskedInput}
             ref={(ref) => telefoneField = ref}
