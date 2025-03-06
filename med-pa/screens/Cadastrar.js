@@ -41,7 +41,7 @@ export default function Cadastrar({navigation}){
     if (senha == null){
       setErrorSenha("Preencha com sua senha")
       error = true
-  }
+    }
     return !error
   }
 
@@ -61,6 +61,8 @@ export default function Cadastrar({navigation}){
           setLoading(false)
           const titulo = (response.data.status) ? "Sucesso" : "Erro"
           Alert.alert(titulo, response.data.mensagem)
+          console.log(response.data)
+          navigation.navigate("Acesso")
         })
         .catch((error) => {
           setLoading(false)

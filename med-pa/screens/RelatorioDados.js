@@ -1,17 +1,21 @@
+//import { useEffect, useState } from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../style/MainStyle';
+//import axios from "axios"
 
 export default function RelatorioDados({navigation}) {
+
+  //
 
   const iniciar = () => {
     navigation.navigate("Boas Vindas")
   }
 
-    const sair = () => {
-      navigation.navigate("Encerrar")
-    }
+  const sair = () => {
+    navigation.navigate("Encerrar")
+  }
     
     return(
       <View>
