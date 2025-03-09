@@ -49,6 +49,22 @@ class UsuarioService{
             return Promise.reject(error)
         })
     }
+
+    async listar(data){
+        return axios({
+            url: "http://192.168.31.202:3000/entrada/listar",
+            method: "GET",
+            timeout: 5000,
+            data: data,
+            headres: {
+                Accept: 'application/json'
+            }
+        }).then((response) => {
+            return Promise.resolve(response)
+        }).catch((error) => {
+            return Promise.reject(error)
+        })
+    }
 }
 
 const usuarioService = new UsuarioService()
